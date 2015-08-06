@@ -23,9 +23,12 @@ class GlobalUrl
      * */
     public static function place_url($r)
     {
-        $place_name = str_replace(' ','-',strtolower($r->name));
-        $city_name  = str_replace(' ','-',strtolower($r->city));
-        return "<a href=\"/place/$place_name-$city_name-".$r->place_id."\">".$r->name."</a>";
+        if(!empty($r))
+        {
+            $place_name = str_replace(' ','-',strtolower($r->name));
+            $city_name  = str_replace(' ','-',strtolower($r->city));
+            return "<a href=\"/place/$place_name-$city_name-".$r->place_id."\">".$r->name."</a>";
+        }
     }
 
     public static  function user_url($username)
