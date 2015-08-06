@@ -110,7 +110,7 @@ Route::get('login/fb', function() {
 Route::get('login/fb/callback', function() {
     $socialize_user =  \Socialite::with('facebook')->user();
     $facebook_user_id = $socialize_user->getId(); // unique facebook user id
-    $user = User::where('fb_id', $facebook_user_id)->first();
+    $user = User::where('email', $socialize_user->email)->first();
 
     $location = Location::get();
     $city       =   $location->cityName;
