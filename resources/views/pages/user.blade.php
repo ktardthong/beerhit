@@ -174,25 +174,31 @@
 
                 <div class="col-xs-12 col-sm-4">
                     <h4>Visited</h4>
-                    @foreach($user_checkin as $c)
-                         <div class="padding_box">
-                            <img src="https://graph.facebook.com/{{$c->place_id}}/picture?type=small" class="img-circle" width="60px">
-                            {!! \GlobalUrl::place_url($c) !!}
-                        </div>
-                    @endforeach
+                    @If(!empty($user_checkin))
+                        @foreach($user_checkin as $c)
+                             <div class="padding_box">
+                                <img src="https://graph.facebook.com/{{$c->place_id}}/picture?type=small" class="img-circle" width="60px">
+                                {!! \GlobalUrl::place_url($c) !!}
+                            </div>
+                        @endforeach
+                    @endif
 
                     <h4>Uploaded</h4>
-                    @foreach($drink_uploaded as $uploaded)
-                        <p>
-                        {!! \GlobalUrl::beer_image($uploaded->beer,$uploaded->img_id,"<img src=\"$uploaded->path\" class='img-thumbnail img-responsive'>") !!}
-                        </p>
-                    @endforeach
+                    @If(!empty($drink_uploaded))
+                        @foreach($drink_uploaded as $uploaded)
+                            <p>
+                            {!! \GlobalUrl::beer_image($uploaded->beer,$uploaded->img_id,"<img src=\"$uploaded->path\" class='img-thumbnail img-responsive'>") !!}
+                            </p>
+                        @endforeach
+                    @endif
 
                     <h4><i class="fa fa-thumbs-o-up fa-1x"></i>Like</h4>
-                    @foreach($user_like as $l)
-                        <img src="{!! $l->logo !!}" width="60px">
-                        {!! $l->beer !!}
-                    @endforeach
+                    @If(!empty($user_like))
+                        @foreach($user_like as $l)
+                            <img src="{!! $l->logo !!}" width="60px">
+                            {!! $l->beer !!}
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
