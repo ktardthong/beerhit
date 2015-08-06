@@ -15,10 +15,10 @@ return [
     */
 
     'facebook' => [
-        'client_id'     => '182388651773669',
-        'client_secret' => '3b63ec9b8ba39d8a70c9b6bcc588dfae',
+        'client_id'     => getenv('FB_ID'),
+        'client_secret' => getenv('FB_SECRET'),
         'scopes'         => ['user_friends','user_location','user_birthday'],
-        'redirect'      => 'http://192.168.0.105:8000/login/fb/callback',
+        'redirect'      => getenv('FB_CALLBACK'),
     ],
 
     'mailgun' => [

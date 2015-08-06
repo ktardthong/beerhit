@@ -22,7 +22,8 @@
                 <div class="container-fluid">
                     <div class="col-xs-12 padding_box">
                         <h1>Register</h1>
-                        <img src="{!! $user->avatar !!}" name="avatar">
+                        <img src="{!! $user->avatar !!}">
+                        {!! Form::hidden('avatar', $user->avatar) !!}
                         {!! Form::file('image', null) !!}
                     </div>
                 </div>
